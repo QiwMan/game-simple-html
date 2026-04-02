@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Simple HTML</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/styles/main.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="game-canvas"></canvas>
+        
+        <!-- Main Menu -->
+        <div id="main-menu" class="menu-screen active">
+            <div class="menu-bg-effect"></div>
+            <div class="menu-content">
+                <h1 class="game-title">GAME SIMPLE</h1>
+                <p class="game-subtitle">HTML5 Edition</p>
+                <nav class="menu-nav">
+                    <button class="menu-btn primary" data-action="start">
+                        <span class="btn-text">Start Game</span>
+                        <span class="btn-glow"></span>
+                    </button>
+                    <button class="menu-btn" data-action="settings">
+                        <span class="btn-text">Settings</span>
+                    </button>
+                    <button class="menu-btn" data-action="credits">
+                        <span class="btn-text">Credits</span>
+                    </button>
+                </nav>
+            </div>
+            <div class="menu-footer">
+                <p class="controls-hint">WASD / Arrows to Move • Mouse to Aim • ESC to Pause</p>
+            </div>
+        </div>
+
+        <!-- Settings Menu -->
+        <div id="settings-menu" class="menu-screen">
+            <div class="menu-content settings-content">
+                <h2 class="settings-title">Settings</h2>
+                <div class="settings-grid">
+                    <div class="setting-item">
+                        <label for="difficulty">Difficulty</label>
+                        <select id="difficulty">
+                            <option value="easy">Easy</option>
+                            <option value="normal" selected>Normal</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label for="volume">Master Volume</label>
+                        <input type="range" id="volume" min="0" max="100" value="70">
+                        <span class="value-display">70%</span>
+                    </div>
+                    <div class="setting-item">
+                        <label for="sensitivity">Mouse Sensitivity</label>
+                        <input type="range" id="sensitivity" min="1" max="10" value="5">
+                        <span class="value-display">5</span>
+                    </div>
+                    <div class="setting-item">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="fullscreen" checked>
+                            <span class="checkmark"></span>
+                            Fullscreen
+                        </label>
+                    </div>
+                </div>
+                <button class="menu-btn primary" data-action="back">
+                    <span class="btn-text">Back to Menu</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Pause Menu -->
+        <div id="pause-menu" class="menu-screen">
+            <div class="menu-content">
+                <h2 class="pause-title">Paused</h2>
+                <nav class="menu-nav">
+                    <button class="menu-btn primary" data-action="resume">
+                        <span class="btn-text">Resume</span>
+                    </button>
+                    <button class="menu-btn" data-action="settings-pause">
+                        <span class="btn-text">Settings</span>
+                    </button>
+                    <button class="menu-btn" data-action="quit">
+                        <span class="btn-text">Quit to Menu</span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+
+        <!-- HUD -->
+        <div id="hud" class="hud">
+            <div class="hud-top">
+                <div class="score-display">
+                    <span class="score-label">SCORE</span>
+                    <span class="score-value" id="score">0</span>
+                </div>
+                <div class="health-display">
+                    <div class="health-bar">
+                        <div class="health-fill" id="health-fill"></div>
+                    </div>
+                    <span class="health-text" id="health-text">100%</span>
+                </div>
+            </div>
+            <div class="hud-bottom">
+                <div class="minimap" id="minimap"></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="src/main.ts"></script>
+</body>
+</html>
